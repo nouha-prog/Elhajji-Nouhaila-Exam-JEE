@@ -1,10 +1,11 @@
-package com.elhajji.nouhaila.examjee.entity;
+package ma.elhajji.nouhaila.examjee.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ma.elhajji.nouhaila.examjee.entities.Credit;
 
 import java.util.List;
 

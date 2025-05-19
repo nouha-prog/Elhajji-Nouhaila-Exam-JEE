@@ -44,7 +44,7 @@ public abstract class Credit {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id", nullable = false)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private com.elhajji.nouhaila.examjee.entity.Client client;
+    private ma.elhajji.nouhaila.examjee.entities.Client client;
 
     @OneToMany(mappedBy = "credit", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)

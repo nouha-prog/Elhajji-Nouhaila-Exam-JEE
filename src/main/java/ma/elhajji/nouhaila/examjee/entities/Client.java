@@ -1,5 +1,4 @@
-package ma.elhajji.nouhaila.examjee.enteties;
-
+package com.elhajji.nouhaila.examjee.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;

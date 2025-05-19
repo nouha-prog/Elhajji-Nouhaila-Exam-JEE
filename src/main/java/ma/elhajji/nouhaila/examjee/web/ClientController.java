@@ -1,14 +1,15 @@
 package ma.elhajji.nouhaila.examjee.web;
 
-
 import ma.elhajji.nouhaila.examjee.dto.ClientDTO;
 import ma.elhajji.nouhaila.examjee.services.ClientService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
+@RequestMapping("/api/clients")  // mapping de base pour tous les endpoints du client
 public class ClientController implements ClientRestApi {
 
     private final ClientService clientService;
@@ -18,31 +19,36 @@ public class ClientController implements ClientRestApi {
     }
 
     @Override
+    @GetMapping
     public List<ClientDTO> getAllClients() {
         return clientService.getAllClients();
     }
 
     @Override
-    public ResponseEntity<ClientDTO> getClient(Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<ClientDTO> getClient(@PathVariable Long id) {
         ClientDTO clientDTO = clientService.getClient(id);
         return ResponseEntity.ok(clientDTO);
     }
 
     @Override
-    public ResponseEntity<ClientDTO> createClient(ClientDTO clientDTO) {
+    @PostMapping
+    public ResponseEntity<ClientDTO> createClient(@RequestBody ClientDTO clientDTO) {
         ClientDTO savedClient = clientService.saveClient(clientDTO);
         return ResponseEntity.ok(savedClient);
     }
 
     @Override
-    public ResponseEntity<ClientDTO> updateClient(Long id, ClientDTO clientDTO) {
+    @PutMapping("/{id}")
+    public ResponseEntity<ClientDTO> updateClient(@PathVariable Long id, @RequestBody ClientDTO clientDTO) {
         clientDTO.setId(id);
         ClientDTO updatedClient = clientService.saveClient(clientDTO);
         return ResponseEntity.ok(updatedClient);
     }
 
     @Override
-    public ResponseEntity<Void> deleteClient(Long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteClient(@PathVariable Long id) {
         clientService.deleteClient(id);
         return ResponseEntity.noContent().build();
     }

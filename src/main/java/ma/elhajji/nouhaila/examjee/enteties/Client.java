@@ -1,5 +1,6 @@
 package ma.elhajji.nouhaila.examjee.enteties;
 
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
